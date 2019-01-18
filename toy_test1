@@ -1,0 +1,30 @@
+
+clear all; clc
+
+
+opts = odeset('RelTol',1e-8,'AbsTol',1e-8);
+               
+[tp,x]=ode45(@machinefun,[0,0.03],[0;0;0;0],opts);
+ 
+
+%[tp,x]=ode45(@machinefun,[0,0.1],[0;0;0;0]);
+
+figure(1);
+plot(tp,x(:,1),'-o');
+xlabel('time')
+ylabel('YQ')
+
+figure(2);
+plot(tp,x(:,2),'-o');
+xlabel('time')
+ylabel('YQ_p')
+
+figure(3)
+plot(tp,x(:,3),'-o')
+xlabel('time')
+ylabel('\beta')
+
+figure(4)
+plot(tp,x(:,4),'-o')
+xlabel('time')
+ylabel('\beta_p')
